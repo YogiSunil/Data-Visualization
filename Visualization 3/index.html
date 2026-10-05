@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Skill Requirements Across Tech Job Categories</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    h1 { margin-bottom: 4px; }
+    .subtitle { margin-top: 0; color: #555; font-style: italic; }
+    #chart { border: 1px solid #ddd; display: inline-block; }
+  </style>
+</head>
+<body>
+  <h1>AI Skill Requirements Across Tech Job Categories</h1>
+  <p class="subtitle">Distribution of the percentage of job listings requiring AI skills</p>
+  <div id="chart"></div>
+
+  <script>
+    const width = 900;
+    const height = 520;
+    const margin = { top: 40, right: 40, bottom: 80, left: 90 };
+
+    const categories = ["engineering", "devops", "product", "data", "security", "ai"];
+
+    const svg = d3.select("#chart")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    const plot = svg.append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scaleBand()
+      .domain(categories)
+      .range([0, width - margin.left - margin.right])
+      .padding(0.3);
+
+    const y = d3.scaleLinear()
+      .domain([0, 100])
+      .range([height - margin.top - margin.bottom, 0]);
+
+    d3.csv("ai-requirements-index.csv").then(function(raw) {
+      console.log("Rows loaded:", raw.length);
+
+     
+      const filteredRows = raw.filter(function(row) {
+        return row.seniority === "all" && row.tier === "any_ai";
+      });
+
+      const usefulData = filteredRows.map(function(row) {
+        return {
+          date: row.snapshot_date,
+          category: row.category,
+          pct: +row.pct
+        };
+      });
+
+      const completeData = usefulData.filter(function(row) {
+        return row.category !== "" && !isNaN(row.pct);
+      });
+
+      console.log("Complete rows:", completeData.length);
+      console.log("Sample:", completeData.slice(0, 3));
+
+      const pctByCategory = d3.group(completeData, d => d.category);
+      pctByCategory.forEach(function(rows, category) {
+        console.log(category, "snapshots:", rows.length);
+      });
+
+      const boxStats = Array.from(pctByCategory, function(entry) {
+        const category = entry[0];
+        const values = entry[1].map(d => d.pct).sort(d3.ascending);
+
+        const q1 = d3.quantile(values, 0.25);
+        const median = d3.quantile(values, 0.5);
+        const q3 = d3.quantile(values, 0.75);
+        const iqr = q3 - q1;
+        const lowerFence = q1 - 1.5 * iqr;
+        const upperFence = q3 + 1.5 * iqr;
+
+        const inside = values.filter(v => v >= lowerFence && v <= upperFence);
+
+        return {
+          category: category,
+          q1: q1,
+          median: median,
+          q3: q3,
+          whiskerLow: d3.min(inside),
+          whiskerHigh: d3.max(inside),
+          outliers: values.filter(v => v < lowerFence || v > upperFence)
+        };
+      });
+
+      console.log("Box stats:", boxStats);
+
+      // Lowest median on the left, highest on the right
+      boxStats.sort((a, b) => a.median - b.median);
+      x.domain(boxStats.map(d => d.category));
+
+      console.log("Order by median:", boxStats.map(d => d.category + " " + d.median.toFixed(1)));
+
+      const categoryNames = {
+        engineering: "Engineering",
+        devops: "DevOps",
+        product: "Product",
+        data: "Data",
+        security: "Security",
+        ai: "AI"
+      };
+      const innerWidth = width - margin.left - margin.right;
+      const innerHeight = height - margin.top - margin.bottom;
+
+      plot.append("g")
+        .attr("class", "grid")
+        .call(d3.axisLeft(y).tickValues([0, 20, 40, 60, 80, 100]).tickSize(-innerWidth).tickFormat(""))
+        .call(g => g.select(".domain").remove())
+        .selectAll("line")
+        .attr("stroke", "#e5e5e5");
+
+      plot.append("g")
+        .call(d3.axisLeft(y).tickValues([0, 20, 40, 60, 80, 100]).tickFormat(d => d + "%").tickSize(0))
+        .call(g => g.select(".domain").remove())
+        .selectAll("text")
+        .attr("font-size", 13);
+
+      plot.append("g")
+        .attr("transform", `translate(0,${innerHeight})`)
+        .call(d3.axisBottom(x).tickFormat(d => categoryNames[d]).tickSizeOuter(0))
+        .selectAll("text")
+        .attr("font-size", 14)
+        .attr("dy", "1.2em");
+
+      plot.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -innerHeight / 2)
+        .attr("y", -60)
+        .attr("text-anchor", "middle")
+        .attr("font-size", 14)
+        .text("Job Listings Requiring AI Skills (%)");
+
+      plot.append("text")
+        .attr("x", innerWidth / 2)
+        .attr("y", innerHeight + 78)
+        .attr("text-anchor", "middle")
+        .attr("font-size", 14)
+        .text("Technology Job Category");
+
+      // One group per category, positioned at the left edge of its band
+      const boxes = plot.selectAll(".box")
+        .data(boxStats)
+        .join("g")
+        .attr("class", "box")
+        .attr("transform", d => `translate(${x(d.category)},0)`);
+
+      const center = x.bandwidth() / 2;
+
+      // Colour follows the median rank: lighter/cooler to stronger/warmer
+      const colorScale = d3.scaleSequential(t => d3.interpolateYlOrRd(0.15 + 0.85 * t))
+        .domain([0, boxStats.length - 1]);
+      const boxColor = d => colorScale(boxStats.indexOf(d));
+
+      boxes.append("line")
+        .attr("x1", center).attr("x2", center)
+        .attr("y1", d => y(d.whiskerLow))
+        .attr("y2", d => y(d.whiskerHigh))
+        .attr("stroke", "#333");
+
+      boxes.append("line")
+        .attr("x1", center - x.bandwidth() / 6).attr("x2", center + x.bandwidth() / 6)
+        .attr("y1", d => y(d.whiskerLow)).attr("y2", d => y(d.whiskerLow))
+        .attr("stroke", "#333");
+
+      boxes.append("line")
+        .attr("x1", center - x.bandwidth() / 6).attr("x2", center + x.bandwidth() / 6)
+        .attr("y1", d => y(d.whiskerHigh)).attr("y2", d => y(d.whiskerHigh))
+        .attr("stroke", "#333");
+
+      boxes.append("rect")
+        .attr("x", 0)
+        .attr("y", d => y(d.q3))
+        .attr("width", x.bandwidth())
+        .attr("height", d => y(d.q1) - y(d.q3))
+        .attr("fill", boxColor)
+        .attr("stroke", "#333");
+
+      boxes.append("line")
+        .attr("x1", 0).attr("x2", x.bandwidth())
+        .attr("y1", d => y(d.median)).attr("y2", d => y(d.median))
+        .attr("stroke", "#111")
+        .attr("stroke-width", 3);
+
+      boxes.selectAll(".outlier")
+        .data(d => d.outliers)
+        .join("circle")
+        .attr("class", "outlier")
+        .attr("cx", center)
+        .attr("cy", d => y(d))
+        .attr("r", 3)
+        .attr("fill", "none")
+        .attr("stroke", "#333");
+
+      boxes.append("text")
+        .attr("x", center)
+        .attr("y", innerHeight + 44)
+        .attr("text-anchor", "middle")
+        .attr("font-size", 13)
+        .attr("font-weight", "bold")
+        .text(d => "Median: " + d.median.toFixed(1) + "%");
+    });
+  </script>
+</body>
+</html>

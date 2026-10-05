@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Social Media Behaviors and Sleep Across Age Groups</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    #chart { border: 1px solid #ddd; display: inline-block; }
+  </style>
+</head>
+<body>
+  <h1>How do social-media behaviors and sleep patterns differ across age groups?</h1>
+  <div id="chart"></div>
+
+  <script>
+    const width = 1000;
+    const height = 560;
+    const margin = { top: 110, right: 40, bottom: 60, left: 90 };
+
+    const ageGroups = ["13-17", "18-22", "23-27", "28-35", "36-49", "50-59", "60+"];
+
+    // Columns grouped by section; "key" will be matched to CSV columns later
+    const columns = [
+      { section: "Social media behaviors", label: "Daily SM Hours", key: "smHours" },
+      { section: "Social media behaviors", label: "Late-Night Scrolling", key: "lateNight" },
+      { section: "Social media behaviors", label: "Doomscrolling", key: "doomscrolling" },
+      { section: "Social media behaviors", label: "Purposeless Scrolling", key: "purposeless" },
+      { section: "Social media behaviors", label: "During Work/Study", key: "workStudy" },
+      { section: "Social media behaviors", label: "During Meals", key: "meals" },
+      { section: "Sleep", label: "Sleep Hours", key: "sleepHours" },
+      { section: "Sleep", label: "Sleep Quality", key: "sleepQuality" }
+    ];
+
+    const svg = d3.select("#chart")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    const plot = svg.append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scaleBand()
+      .domain(columns.map(d => d.label))
+      .range([0, width - margin.left - margin.right])
+      .padding(0);
+
+    const y = d3.scaleBand()
+      .domain(ageGroups)
+      .range([0, height - margin.top - margin.bottom])
+      .padding(0);
+
+    // Step 1: empty grid with placeholder values (no data yet)
+    const cells = ageGroups.flatMap(age => columns.map(col => ({ age, col: col.label })));
+
+    plot.selectAll(".cell")
+      .data(cells)
+      .join("rect")
+      .attr("class", "cell")
+      .attr("x", d => x(d.col))
+      .attr("y", d => y(d.age))
+      .attr("width", x.bandwidth())
+      .attr("height", y.bandwidth())
+      .attr("fill", "#f2f2f2")
+      .attr("stroke", "none")
+      .attr("shape-rendering", "crispEdges");
+
+    plot.selectAll(".cell-value")
+      .data(cells)
+      .join("text")
+      .attr("class", "cell-value")
+      .attr("x", d => x(d.col) + x.bandwidth() / 2)
+      .attr("y", d => y(d.age) + y.bandwidth() / 2)
+      .attr("text-anchor", "middle")
+      .attr("dominant-baseline", "middle")
+      .attr("font-size", 14)
+      .attr("fill", "#666")
+      .text("VALUE");
+
+    plot.selectAll(".row-label")
+      .data(ageGroups)
+      .join("text")
+      .attr("class", "row-label")
+      .attr("x", -10)
+      .attr("y", d => y(d) + y.bandwidth() / 2)
+      .attr("text-anchor", "end")
+      .attr("dominant-baseline", "middle")
+      .attr("font-size", 14)
+      .text(d => d);
+
+    plot.selectAll(".col-label")
+      .data(columns)
+      .join("text")
+      .attr("class", "col-label")
+      .attr("x", d => x(d.label) + x.bandwidth() / 2)
+      .attr("y", -10)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 12)
+      .text(d => d.label);
+
+    const sections = d3.groups(columns, d => d.section);
+
+    sections.forEach(([name, cols]) => {
+      const x0 = x(cols[0].label);
+      const x1 = x(cols[cols.length - 1].label) + x.bandwidth();
+      plot.append("text")
+        .attr("x", (x0 + x1) / 2)
+        .attr("y", -50)
+        .attr("text-anchor", "middle")
+        .attr("font-size", 14)
+        .attr("font-weight", "bold")
+        .text(name.toUpperCase());
+      plot.append("line")
+        .attr("x1", x0).attr("x2", x1)
+        .attr("y1", -38).attr("y2", -38)
+        .attr("stroke", "#333");
+    });
+
+    // Legend: gradient bar with a label at each end
+    function drawLegend(id, interpolator, reversed, x0, title, leftText, rightText) {
+      const barWidth = 220;
+      const stops = d3.range(11).map(i => ({
+        offset: i * 10 + "%",
+        color: interpolator(reversed ? 1 - i / 10 : i / 10)
+      }));
+
+      svg.append("defs")
+        .append("linearGradient")
+        .attr("id", id)
+        .selectAll("stop")
+        .data(stops)
+        .join("stop")
+        .attr("offset", d => d.offset)
+        .attr("stop-color", d => d.color);
+
+      svg.append("text").attr("x", x0).attr("y", height - 38)
+        .attr("font-size", 12).attr("font-weight", "bold").text(title);
+      svg.append("rect").attr("x", x0).attr("y", height - 32)
+        .attr("width", barWidth).attr("height", 12)
+        .attr("fill", "url(#" + id + ")").attr("stroke", "#999");
+      svg.append("text").attr("x", x0).attr("y", height - 5)
+        .attr("font-size", 12).text(leftText);
+      svg.append("text").attr("x", x0 + barWidth).attr("y", height - 5)
+        .attr("font-size", 12).attr("text-anchor", "end").text(rightText);
+    }
+
+    drawLegend("behavior-gradient", d3.interpolateBlues, false, margin.left,
+      "Social media behaviors", "Low", "High");
+    drawLegend("sleep-gradient", d3.interpolateOranges, true, margin.left + 400,
+      "Sleep", "Poor / Low", "Better / High");
+
+    // Text answers converted to scores (higher = more of the behavior)
+    const frequencyScore = { Never: 0, Rarely: 1, Sometimes: 2, Often: 3, Daily: 4, Always: 4 };
+    const purposelessScore = { Never: 0, Rarely: 1, Sometimes: 2, Yes: 3 };
+    const sleepQualityScore = { "Very poor": 1, Poor: 2, Fair: 3, Good: 4, "Very good": 5 };
+
+    d3.csv("social_media.csv").then(function(raw) {
+      const data = raw.filter(d => d.age_group);
+      console.log("Rows loaded:", data.length);
+
+      const usefulData = data.map(function(row) {
+        return {
+          ageGroup: row.age_group,
+          smHours: +row.avg_daily_sm_hours,
+          lateNight: frequencyScore[row.late_night_scrolling],
+          doomscrolling: frequencyScore[row.doomscrolling_frequency],
+          purposeless: purposelessScore[row.scroll_without_purpose],
+          workStudy: frequencyScore[row.sm_during_work_study],
+          meals: frequencyScore[row.sm_during_meals],
+          sleepHours: +row.avg_sleep_hours,
+          sleepQuality: sleepQualityScore[row.sleep_quality]
+        };
+      });
+
+      const completeData = usefulData.filter(function(row) {
+        return !isNaN(row.smHours) &&
+               !isNaN(row.lateNight) &&
+               !isNaN(row.doomscrolling) &&
+               !isNaN(row.purposeless) &&
+               !isNaN(row.workStudy) &&
+               !isNaN(row.meals) &&
+               !isNaN(row.sleepHours) &&
+               !isNaN(row.sleepQuality);
+      });
+
+      console.log("usefulData sample:", usefulData.slice(0, 3));
+      console.log("Complete rows:", completeData.length);
+
+      // column key -> Map of age group -> average
+      const averages = new Map(columns.map(col => [
+        col.key,
+        d3.rollup(completeData, rows => d3.mean(rows, d => d[col.key]), d => d.ageGroup)
+      ]));
+
+      console.log("Averages:", averages);
+      console.log("Daily SM hours by age group:", averages.get("smHours"));
+
+      const heatmapCells = ageGroups.flatMap(age => columns.map(col => ({
+        age: age,
+        col: col.label,
+        key: col.key,
+        value: averages.get(col.key).get(age)
+      })));
+
+      console.log("Heatmap cells:", heatmapCells.length, heatmapCells.slice(0, 3));
+
+      // Sleep domain is reversed so low sleep (poor) gets the dark color
+      const colorScales = new Map(columns.map(function(col) {
+        const extent = d3.extent(averages.get(col.key).values());
+        const isSleep = col.section === "Sleep";
+        return [
+          col.key,
+          d3.scaleSequential(isSleep ? d3.interpolateOranges : d3.interpolateBlues)
+            .domain(isSleep ? extent.reverse() : extent)
+        ];
+      }));
+
+      console.log("Color for 13-17 daily SM hours:", colorScales.get("smHours")(averages.get("smHours").get("13-17")));
+      console.log("Color for 13-17 sleep hours:", colorScales.get("sleepHours")(averages.get("sleepHours").get("13-17")));
+
+      const cellColor = d => colorScales.get(d.key)(d.value);
+
+      plot.selectAll(".cell")
+        .data(heatmapCells)
+        .attr("fill", cellColor)
+        .append("title")
+        .text(d => d.age + " | " + d.col + ": " + d.value.toFixed(2));
+
+      // White text on dark cells, dark text on light cells
+      plot.selectAll(".cell-value")
+        .data(heatmapCells)
+        .attr("fill", d => d3.lab(cellColor(d)).l < 55 ? "white" : "#222")
+        .text(d => d.value.toFixed(2));
+    });
+  </script>
+</body>
+</html>

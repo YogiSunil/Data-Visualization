@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Food Delivery - Alluvial Diagram</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+
+    #chart {
+      border: 1px solid #ddd;
+    }
+
+    .flow {
+      fill: none;
+      opacity: 0.5;
+    }
+
+    .node-label,
+    .column-label {
+      font-size: 20px;
+    }
+
+    .column-label {
+      font-weight: bold;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Income &rarr; Occupation &rarr; Reorder Behavior</h1>
+  <div id="chart"></div>
+
+  <script>
+    const width = 800;
+    const height = 500;
+
+    const incomeNodes = [
+      { name: "No Income", y: 80, height: 120, color: "steelblue" },
+      { name: "Low Income", y: 230, height: 80, color: "skyblue" },
+      { name: "Mid Income", y: 340, height: 60, color: "deepskyblue" },
+      { name: "High Income", y: 420, height: 40, color: "lightblue" }
+    ];
+
+    const occupationNodes = [
+      { name: "Student", y: 130, height: 180, color: "orange" },
+      { name: "Employed", y: 340, height: 100, color: "purple" },
+      { name: "Other", y: 460, height: 30, color: "gray" }
+    ];
+
+    const reorderNodes = [
+      { name: "Yes", y: 180, height: 180, color: "green" },
+      { name: "No", y: 400, height: 60, color: "red" }
+    ];
+
+    const svg = d3.select("#chart")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    function simplifyIncome(value) {
+      if (value === "No Income") return "No Income";
+      if (value === "Below Rs.10000" || value === "10001 to 25000") {
+        return "Low Income";
+      }
+      if (value === "25001 to 50000") return "Mid Income";
+      return "High Income";
+    }
+
+    function simplifyOccupation(value) {
+      if (value === "Student") return "Student";
+      if (value === "Employee" || value === "Self Employeed") {
+        return "Employed";
+      }
+      return "Other";
+    }
+
+    function drawNodes(nodes, x, className) {
+      svg.selectAll("." + className)
+        .data(nodes)
+        .enter()
+        .append("rect")
+        .attr("class", className)
+        .attr("x", x)
+        .attr("y", d => d.y)
+        .attr("width", 20)
+        .attr("height", d => d.height)
+        .attr("fill", d => d.color);
+
+      svg.selectAll("." + className + "-label")
+        .data(nodes)
+        .enter()
+        .append("text")
+        .attr("class", "node-label " + className + "-label")
+        .attr("x", x + 30)
+        .attr("y", d => d.y + d.height / 2)
+        .attr("dominant-baseline", "middle")
+        .text(d => d.name);
+    }
+
+    svg.append("text")
+      .attr("class", "column-label")
+      .attr("x", 100)
+      .attr("y", 40)
+      .text("Income");
+
+    svg.append("text")
+      .attr("class", "column-label")
+      .attr("x", 400)
+      .attr("y", 40)
+      .text("Occupation");
+
+    svg.append("text")
+      .attr("class", "column-label")
+      .attr("x", 700)
+      .attr("y", 40)
+      .text("Reorder");
+
+    drawNodes(incomeNodes, 100, "income-node");
+    drawNodes(occupationNodes, 400, "occupation-node");
+    drawNodes(reorderNodes, 700, "reorder-node");
+
+    d3.csv("data/delivery.csv").then(function(data) {
+      const usefulData = data.map(function(row) {
+        return {
+          income: simplifyIncome(row["Monthly Income"]),
+          occupation: simplifyOccupation(row["Occupation"]),
+          reorder: row["Output"]
+        };
+      });
+
+      const completeData = usefulData.filter(function(row) {
+        return row.income !== "" &&
+               row.occupation !== "" &&
+               row.reorder !== "";
+      });
+
+      const linkCounts = new Map();
+
+      completeData.forEach(function(row) {
+        const incomeLink = row.income + " -> " + row.occupation;
+        const reorderLink = row.occupation + " -> " + row.reorder;
+
+        linkCounts.set(incomeLink, (linkCounts.get(incomeLink) || 0) + 1);
+        linkCounts.set(reorderLink, (linkCounts.get(reorderLink) || 0) + 1);
+      });
+
+      const linkData = Array.from(linkCounts, function(entry) {
+        return {
+          link: entry[0],
+          count: entry[1]
+        };
+      });
+
+      linkData.sort(function(a, b) {
+        return b.count - a.count;
+      });
+
+      console.log("Aggregated links:", linkData);
+
+      const maxLinkCount = d3.max(linkData, d => d.count);
+      const widthScale = d3.scaleLinear()
+        .domain([0, maxLinkCount])
+        .range([1, 40]);
+
+      function findNode(nodes, name) {
+        return nodes.find(function(node) {
+          return node.name === name;
+        });
+      }
+
+      const flows = linkData.map(function(item) {
+        const parts = item.link.split(" -> ");
+        const source = parts[0];
+        const target = parts[1];
+        const incomeLink = findNode(incomeNodes, source);
+        const occupationSource = findNode(occupationNodes, source);
+        const occupationTarget = findNode(occupationNodes, target);
+        const reorderTarget = findNode(reorderNodes, target);
+        const isIncomeLink = incomeLink !== undefined;
+
+        return {
+          source: source,
+          target: target,
+          count: item.count,
+          startX: isIncomeLink ? 120 : 420,
+          startY: isIncomeLink
+            ? incomeLink.y + incomeLink.height / 2
+            : occupationSource.y + occupationSource.height / 2,
+          endX: isIncomeLink ? 400 : 700,
+          endY: isIncomeLink
+            ? occupationTarget.y + occupationTarget.height / 2
+            : reorderTarget.y + reorderTarget.height / 2,
+          color: isIncomeLink
+            ? incomeLink.color
+            : reorderTarget.color
+        };
+      });
+
+      svg.insert("g", ".income-node")
+        .attr("class", "flows")
+        .selectAll(".flow")
+        .data(flows)
+        .enter()
+        .append("path")
+        .attr("class", "flow")
+        .attr("d", function(d) {
+          const controlX = (d.startX + d.endX) / 2;
+          return "M " + d.startX + " " + d.startY +
+            " C " + controlX + " " + d.startY + ", " +
+            controlX + " " + d.endY + ", " +
+            d.endX + " " + d.endY;
+        })
+        .attr("stroke", d => d.color)
+        .attr("stroke-width", d => widthScale(d.count))
+        .append("title")
+        .text(d => d.source + " -> " + d.target + ": " + d.count + " customers");
+    });
+  </script>
+</body>
+</html>
+            

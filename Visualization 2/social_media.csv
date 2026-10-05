@@ -1,0 +1,306 @@
+data_source,age,age_group,gender,race_ethnicity,country_of_residence,education_level,employment_status,avg_daily_sm_hours,years_on_social_media,late_night_scrolling,sm_during_work_study,sm_during_meals,scroll_without_purpose,doomscrolling_frequency,avg_daily_screen_time_hours,avg_sleep_hours,sleep_quality
+,,,,,,,,,,,,,,,,,
+synthetic_ai,16,13-17,Female,South Asian,India,High school,Student,7.5,4,Daily,Always,Always,Yes,Daily,11,5.5,Poor
+synthetic_ai,17,13-17,Male,East Asian,China,High school,Student,8,5,Daily,Always,Always,Yes,Daily,12,5,Very poor
+synthetic_ai,15,13-17,Female,Black/African,Nigeria,High school,Student,6.5,3,Daily,Often,Often,Yes,Daily,10,6,Poor
+synthetic_ai,19,18-22,Male,White/Caucasian,USA,High school,Student,6,6,Daily,Often,Sometimes,Yes,Daily,10.5,6,Poor
+synthetic_ai,18,18-22,Female,Hispanic/Latino,Mexico,High school,Student,7,4,Daily,Always,Often,Yes,Daily,11.5,5.5,Poor
+synthetic_ai,16,13-17,Male,South Asian,Pakistan,High school,Student,6.5,3,Daily,Often,Often,Yes,Daily,10,6,Poor
+synthetic_ai,21,18-22,Female,White/Caucasian,UK,Undergraduate,Student,5.5,5,Daily,Often,Often,Yes,Daily,9.5,6.5,Fair
+synthetic_ai,20,18-22,Male,East Asian,Japan,Undergraduate,Student,5,4,Sometimes,Often,Sometimes,Yes,Often,9,6.5,Fair
+synthetic_ai,22,18-22,Female,South Asian,Bangladesh,Undergraduate,Student,7,5,Daily,Always,Often,Yes,Daily,11,5.5,Poor
+synthetic_ai,17,13-17,Male,Black/African,Kenya,High school,Student,5.5,3,Daily,Often,Sometimes,Yes,Daily,9,6.5,Fair
+synthetic_ai,23,18-22,Female,White/Caucasian,Australia,Undergraduate,Student,5,5,Often,Often,Sometimes,Yes,Often,9,7,Fair
+synthetic_ai,19,18-22,Male,Hispanic/Latino,Brazil,High school,Student,6.5,4,Daily,Always,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,21,18-22,Female,Middle Eastern,Saudi Arabia,Undergraduate,Student,6,4,Daily,Often,Often,Yes,Daily,10,6.5,Fair
+synthetic_ai,24,23-27,Male,South Asian,India,Undergraduate,Student,5.5,5,Sometimes,Often,Sometimes,Yes,Often,9,7,Fair
+synthetic_ai,20,18-22,Female,East Asian,South Korea,Undergraduate,Student,7.5,6,Daily,Always,Always,Yes,Daily,12,5.5,Poor
+synthetic_ai,18,18-22,Male,White/Caucasian,Canada,High school,Student,5,4,Often,Often,Sometimes,Yes,Daily,9.5,7,Fair
+synthetic_ai,22,18-22,Female,Black/African,South Africa,Undergraduate,Student,6,4,Daily,Often,Often,Yes,Daily,10,6.5,Fair
+synthetic_ai,25,23-27,Male,East Asian,China,Undergraduate,Full-time employed,5,6,Often,Sometimes,Sometimes,Yes,Often,8.5,7,Fair
+synthetic_ai,16,13-17,Female,Hispanic/Latino,Colombia,High school,Student,7,3,Daily,Always,Often,Yes,Daily,11,5.5,Poor
+synthetic_ai,21,18-22,Male,South Asian,India,Undergraduate,Student,6.5,4,Daily,Often,Sometimes,Yes,Daily,10,6,Poor
+synthetic_ai,17,13-17,Female,White/Caucasian,USA,High school,Student,7,4,Daily,Always,Always,Yes,Daily,11.5,5.5,Poor
+synthetic_ai,23,23-27,Male,East Asian,Japan,Undergraduate,Part-time employed,4.5,5,Sometimes,Sometimes,Sometimes,Yes,Often,8,7,Fair
+synthetic_ai,19,18-22,Female,Black/African,Ghana,High school,Student,6.5,3,Daily,Often,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,20,18-22,Male,Hispanic/Latino,Argentina,Undergraduate,Student,5.5,4,Daily,Often,Sometimes,Yes,Daily,9,6.5,Fair
+synthetic_ai,22,18-22,Female,South Asian,Sri Lanka,Undergraduate,Student,6,4,Daily,Often,Often,Yes,Daily,10,6.5,Fair
+synthetic_ai,18,18-22,Male,White/Caucasian,Germany,High school,Student,4.5,4,Sometimes,Sometimes,Sometimes,Yes,Often,8.5,7,Fair
+synthetic_ai,24,23-27,Female,East Asian,South Korea,Undergraduate,Part-time employed,5.5,6,Daily,Often,Often,Yes,Daily,9.5,6.5,Fair
+synthetic_ai,21,18-22,Male,South Asian,Nepal,Undergraduate,Student,5.5,4,Often,Often,Sometimes,Yes,Often,9,6.5,Fair
+synthetic_ai,17,13-17,Female,Middle Eastern,Turkey,High school,Student,7,4,Daily,Always,Often,Yes,Daily,11,5.5,Poor
+synthetic_ai,20,18-22,Male,Black/African,Ethiopia,High school,Student,5,3,Often,Sometimes,Sometimes,Yes,Often,8.5,7,Fair
+synthetic_ai,23,23-27,Female,White/Caucasian,France,Undergraduate,Student,5,5,Often,Often,Sometimes,Yes,Often,9,7,Fair
+synthetic_ai,19,18-22,Male,East Asian,Philippines,High school,Student,7,5,Daily,Always,Often,Yes,Daily,11,5.5,Poor
+synthetic_ai,22,18-22,Female,South Asian,India,Undergraduate,Student,7.5,5,Daily,Always,Often,Yes,Daily,11.5,6,Poor
+synthetic_ai,25,23-27,Male,White/Caucasian,USA,Undergraduate,Full-time employed,4.5,7,Sometimes,Sometimes,Sometimes,Yes,Often,8.5,7.5,Fair
+synthetic_ai,16,13-17,Female,Black/African,Nigeria,High school,Student,8,4,Daily,Always,Always,Yes,Daily,12,5,Very poor
+synthetic_ai,21,18-22,Male,Hispanic/Latino,Mexico,Undergraduate,Student,5.5,4,Daily,Often,Sometimes,Yes,Daily,9.5,6.5,Fair
+synthetic_ai,24,23-27,Female,East Asian,China,Undergraduate,Student,6,6,Daily,Often,Often,Yes,Daily,10,6.5,Fair
+synthetic_ai,18,18-22,Male,South Asian,Pakistan,High school,Student,6,3,Daily,Often,Often,Yes,Daily,10,6,Poor
+synthetic_ai,20,18-22,Female,White/Caucasian,UK,Undergraduate,Part-time employed,5,5,Daily,Often,Sometimes,Yes,Often,9,7,Fair
+synthetic_ai,22,18-22,Male,Middle Eastern,Iran,Undergraduate,Student,5.5,5,Often,Often,Sometimes,Yes,Daily,9.5,6.5,Fair
+synthetic_ai,19,18-22,Female,East Asian,Vietnam,High school,Student,6.5,4,Daily,Often,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,23,23-27,Male,Black/African,Cameroon,Undergraduate,Student,5.5,4,Often,Sometimes,Sometimes,Yes,Often,9,7,Fair
+synthetic_ai,21,18-22,Female,Hispanic/Latino,Venezuela,Undergraduate,Student,6.5,4,Daily,Often,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,17,13-17,Male,White/Caucasian,Australia,High school,Student,6.5,4,Daily,Often,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,24,23-27,Female,South Asian,India,Undergraduate,Full-time employed,5,6,Sometimes,Sometimes,Sometimes,Yes,Often,8.5,7.5,Fair
+synthetic_ai,20,18-22,Male,East Asian,Thailand,Undergraduate,Student,6,4,Daily,Often,Sometimes,Yes,Daily,10,6.5,Fair
+synthetic_ai,16,13-17,Female,White/Caucasian,Canada,High school,Student,7.5,4,Daily,Always,Always,Yes,Daily,11.5,5.5,Poor
+synthetic_ai,22,18-22,Male,Black/African,Zimbabwe,Undergraduate,Student,5.5,3,Often,Often,Sometimes,Yes,Often,9,7,Fair
+synthetic_ai,25,23-27,Female,East Asian,Malaysia,Undergraduate,Full-time employed,5,6,Sometimes,Sometimes,Sometimes,Yes,Often,8.5,7.5,Fair
+synthetic_ai,18,18-22,Male,Hispanic/Latino,Peru,High school,Student,6,3,Daily,Often,Often,Yes,Daily,10,6,Poor
+synthetic_ai,21,18-22,Female,Middle Eastern,Lebanon,Undergraduate,Student,6.5,5,Daily,Always,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,23,23-27,Male,White/Caucasian,USA,Undergraduate,Part-time employed,4.5,5,Sometimes,Sometimes,Sometimes,Yes,Often,8.5,7.5,Fair
+synthetic_ai,19,18-22,Female,South Asian,Bangladesh,High school,Student,7.5,4,Daily,Always,Always,Yes,Daily,11.5,5.5,Poor
+synthetic_ai,24,23-27,Male,East Asian,Indonesia,Undergraduate,Full-time employed,5.5,6,Sometimes,Sometimes,Sometimes,Yes,Often,8.5,7.5,Fair
+synthetic_ai,20,18-22,Female,Black/African,Senegal,Undergraduate,Student,5.5,3,Daily,Often,Often,Yes,Daily,9.5,6.5,Fair
+synthetic_ai,22,18-22,Male,White/Caucasian,Spain,Undergraduate,Student,5,4,Often,Sometimes,Sometimes,Yes,Often,8.5,7,Fair
+synthetic_ai,17,13-17,Female,South Asian,India,High school,Student,8,5,Daily,Always,Always,Yes,Daily,12,5,Very poor
+synthetic_ai,25,23-27,Male,Hispanic/Latino,Colombia,Undergraduate,Full-time employed,4.5,6,Sometimes,Sometimes,Sometimes,Yes,Often,8,7.5,Good
+synthetic_ai,18,18-22,Female,East Asian,Thailand,High school,Student,7,4,Daily,Always,Often,Yes,Daily,11,5.5,Poor
+synthetic_ai,23,23-27,Male,Middle Eastern,Egypt,Undergraduate,Student,5.5,5,Often,Often,Sometimes,Yes,Often,9,7,Fair
+,,,,,,,,,,,,,,,,,
+synthetic_ai,26,23-27,Female,White/Caucasian,USA,Undergraduate,Full-time employed,4,7,Sometimes,Sometimes,Rarely,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,28,28-35,Male,East Asian,China,Postgraduate,Full-time employed,3.5,8,Rarely,Sometimes,Rarely,Rarely,Rarely,7,7.5,Good
+synthetic_ai,25,23-27,Female,South Asian,India,Postgraduate,Full-time employed,4.5,6,Sometimes,Often,Sometimes,Sometimes,Often,8.5,7,Fair
+synthetic_ai,30,28-35,Male,Black/African,Nigeria,Undergraduate,Full-time employed,3.5,7,Rarely,Sometimes,Rarely,Rarely,Rarely,7.5,7.5,Good
+synthetic_ai,27,23-27,Female,White/Caucasian,UK,Postgraduate,Full-time employed,3,7,Rarely,Rarely,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,32,28-35,Male,Hispanic/Latino,Mexico,Undergraduate,Full-time employed,3,8,Rarely,Sometimes,Rarely,Rarely,Rarely,7,7.5,Good
+synthetic_ai,29,28-35,Female,East Asian,Japan,Postgraduate,Full-time employed,4,7,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Fair
+synthetic_ai,26,23-27,Male,South Asian,Pakistan,Undergraduate,Full-time employed,5,5,Often,Often,Sometimes,Yes,Often,9,7,Fair
+synthetic_ai,34,28-35,Female,White/Caucasian,Australia,Postgraduate,Full-time employed,2.5,8,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,27,23-27,Male,Black/African,South Africa,Undergraduate,Full-time employed,4.5,5,Sometimes,Often,Sometimes,Sometimes,Often,8.5,7,Fair
+synthetic_ai,31,28-35,Female,South Asian,India,Postgraduate,Full-time employed,3.5,8,Rarely,Sometimes,Rarely,Rarely,Rarely,7.5,7.5,Good
+synthetic_ai,25,23-27,Male,East Asian,South Korea,Undergraduate,Full-time employed,5.5,6,Often,Often,Sometimes,Yes,Often,9.5,6.5,Fair
+synthetic_ai,28,28-35,Female,Hispanic/Latino,Brazil,Postgraduate,Full-time employed,4.5,7,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8.5,7.5,Fair
+synthetic_ai,33,28-35,Male,White/Caucasian,USA,Postgraduate,Full-time employed,2.5,9,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,29,28-35,Female,Middle Eastern,Turkey,Undergraduate,Full-time employed,4,6,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,35,28-35,Male,East Asian,China,Postgraduate,Full-time employed,2,10,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Good
+synthetic_ai,27,23-27,Female,White/Caucasian,Germany,Postgraduate,Full-time employed,3.5,7,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,30,28-35,Male,South Asian,India,Postgraduate,Full-time employed,4.5,8,Sometimes,Often,Sometimes,Sometimes,Often,8.5,7,Fair
+synthetic_ai,26,23-27,Female,Black/African,Kenya,Undergraduate,Full-time employed,4,5,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,34,28-35,Male,White/Caucasian,UK,Postgraduate,Full-time employed,2.5,9,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,28,28-35,Female,East Asian,Vietnam,Undergraduate,Full-time employed,5,6,Sometimes,Often,Sometimes,Sometimes,Often,9,7,Fair
+synthetic_ai,25,23-27,Male,Hispanic/Latino,Colombia,Undergraduate,Full-time employed,4.5,5,Sometimes,Often,Sometimes,Sometimes,Often,8.5,7,Fair
+synthetic_ai,31,28-35,Female,White/Caucasian,Australia,Postgraduate,Full-time employed,2.5,8,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,29,28-35,Male,South Asian,Pakistan,Postgraduate,Full-time employed,3,8,Rarely,Sometimes,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,27,23-27,Female,Black/African,Ghana,Undergraduate,Full-time employed,4,5,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,33,28-35,Male,White/Caucasian,Canada,Postgraduate,Full-time employed,2,9,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Good
+synthetic_ai,26,23-27,Female,East Asian,Japan,Postgraduate,Full-time employed,3.5,6,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,30,28-35,Male,Hispanic/Latino,Argentina,Undergraduate,Full-time employed,5,7,Sometimes,Often,Sometimes,Sometimes,Often,9,7,Fair
+synthetic_ai,28,28-35,Female,South Asian,Sri Lanka,Undergraduate,Full-time employed,4.5,6,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8.5,7,Fair
+synthetic_ai,35,28-35,Male,White/Caucasian,USA,Postgraduate,Full-time employed,2,10,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Good
+synthetic_ai,32,28-35,Female,East Asian,South Korea,Postgraduate,Full-time employed,3.5,8,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,27,23-27,Male,Black/African,Nigeria,Undergraduate,Full-time employed,5,5,Often,Often,Sometimes,Yes,Often,9,7,Fair
+synthetic_ai,29,28-35,Female,Hispanic/Latino,Mexico,Postgraduate,Full-time employed,4,7,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,34,28-35,Male,Middle Eastern,Lebanon,Undergraduate,Full-time employed,3,9,Rarely,Sometimes,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,26,23-27,Female,White/Caucasian,France,Postgraduate,Full-time employed,3.5,7,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,31,28-35,Male,South Asian,India,Postgraduate,Full-time employed,4,9,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Fair
+synthetic_ai,28,28-35,Female,East Asian,Malaysia,Undergraduate,Full-time employed,5.5,6,Often,Often,Sometimes,Yes,Often,9.5,7,Fair
+synthetic_ai,33,28-35,Male,White/Caucasian,Spain,Postgraduate,Full-time employed,2.5,9,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,25,23-27,Female,Black/African,Cameroon,Undergraduate,Full-time employed,4.5,4,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8.5,7,Fair
+synthetic_ai,30,28-35,Male,Hispanic/Latino,Peru,Undergraduate,Full-time employed,4,6,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,27,23-27,Female,Middle Eastern,Iran,Postgraduate,Full-time employed,4.5,7,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8.5,7.5,Fair
+synthetic_ai,35,28-35,Female,White/Caucasian,Germany,Postgraduate,Full-time employed,2,10,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Very good
+synthetic_ai,29,28-35,Male,East Asian,Indonesia,Undergraduate,Full-time employed,5,7,Often,Sometimes,Sometimes,Sometimes,Often,9,7,Fair
+synthetic_ai,26,23-27,Female,South Asian,Bangladesh,Undergraduate,Full-time employed,5,5,Sometimes,Often,Sometimes,Sometimes,Often,9,7,Fair
+synthetic_ai,32,28-35,Male,Black/African,Kenya,Postgraduate,Full-time employed,3,8,Rarely,Sometimes,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,28,28-35,Female,White/Caucasian,Canada,Postgraduate,Full-time employed,3.5,8,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,34,28-35,Male,Hispanic/Latino,Venezuela,Undergraduate,Full-time employed,4,8,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,27,23-27,Female,East Asian,Philippines,Undergraduate,Full-time employed,5.5,6,Often,Often,Sometimes,Yes,Often,9.5,7,Fair
+synthetic_ai,31,28-35,Male,South Asian,India,Postgraduate,Full-time employed,3,9,Rarely,Sometimes,Rarely,Rarely,Sometimes,7,8,Good
+synthetic_ai,25,23-27,Female,Black/African,Nigeria,Undergraduate,Full-time employed,5,4,Often,Often,Sometimes,Yes,Often,9,7,Fair
+synthetic_ai,29,28-35,Male,White/Caucasian,Australia,Postgraduate,Full-time employed,2.5,8,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,33,28-35,Female,East Asian,South Korea,Postgraduate,Full-time employed,4,8,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,26,23-27,Male,Hispanic/Latino,Colombia,Undergraduate,Full-time employed,4.5,5,Sometimes,Often,Sometimes,Sometimes,Often,8.5,7,Fair
+synthetic_ai,28,28-35,Female,South Asian,Pakistan,Postgraduate,Full-time employed,3.5,7,Sometimes,Rarely,Rarely,Rarely,Rarely,7.5,7.5,Good
+synthetic_ai,35,28-35,Male,Black/African,South Africa,Postgraduate,Full-time employed,2.5,9,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,27,23-27,Female,Middle Eastern,Egypt,Undergraduate,Full-time employed,4.5,5,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8.5,7,Fair
+synthetic_ai,32,28-35,Male,White/Caucasian,France,Postgraduate,Full-time employed,2,9,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Good
+synthetic_ai,30,28-35,Female,East Asian,Japan,Postgraduate,Full-time employed,3,8,Rarely,Sometimes,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,25,23-27,Male,South Asian,India,Undergraduate,Full-time employed,5.5,6,Often,Often,Sometimes,Yes,Often,9.5,7,Fair
+synthetic_ai,34,28-35,Female,Black/African,Ethiopia,Undergraduate,Full-time employed,3.5,7,Sometimes,Sometimes,Rarely,Rarely,Rarely,7.5,7.5,Good
+,,,,,,,,,,,,,,,,,
+synthetic_ai,38,36-49,Male,White/Caucasian,USA,Postgraduate,Full-time employed,2,12,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Good
+synthetic_ai,42,36-49,Female,East Asian,China,Postgraduate,Full-time employed,2.5,10,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,35,28-35,Female,South Asian,India,Postgraduate,Full-time employed,3,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7,8,Good
+synthetic_ai,45,36-49,Male,Black/African,Nigeria,Undergraduate,Full-time employed,2.5,10,Rarely,Sometimes,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,39,36-49,Female,White/Caucasian,UK,Postgraduate,Full-time employed,2,11,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Very good
+synthetic_ai,47,36-49,Male,Hispanic/Latino,Mexico,Undergraduate,Full-time employed,3,10,Rarely,Sometimes,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,36,36-49,Female,East Asian,Japan,Postgraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,43,36-49,Male,White/Caucasian,Australia,Postgraduate,Full-time employed,2,12,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Good
+synthetic_ai,37,36-49,Female,South Asian,Pakistan,Undergraduate,Full-time employed,3.5,8,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,48,36-49,Male,Black/African,South Africa,Postgraduate,Full-time employed,2,12,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Good
+synthetic_ai,41,36-49,Female,Hispanic/Latino,Brazil,Postgraduate,Full-time employed,3.5,10,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,7.5,7.5,Good
+synthetic_ai,36,36-49,Male,Middle Eastern,Turkey,Postgraduate,Full-time employed,3,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7,8,Good
+synthetic_ai,44,36-49,Female,White/Caucasian,Germany,Postgraduate,Full-time employed,2,12,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Very good
+synthetic_ai,40,36-49,Male,East Asian,South Korea,Postgraduate,Full-time employed,2.5,10,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,46,36-49,Female,South Asian,India,Postgraduate,Full-time employed,3,12,Rarely,Sometimes,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,38,36-49,Male,White/Caucasian,France,Postgraduate,Full-time employed,2.5,11,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,43,36-49,Female,Black/African,Kenya,Undergraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,49,36-49,Male,Hispanic/Latino,Colombia,Undergraduate,Full-time employed,2.5,12,Rarely,Sometimes,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,37,36-49,Female,East Asian,Malaysia,Postgraduate,Full-time employed,3,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7,8,Good
+synthetic_ai,44,36-49,Male,South Asian,Pakistan,Postgraduate,Full-time employed,2.5,11,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,39,36-49,Female,White/Caucasian,Canada,Postgraduate,Full-time employed,2,11,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Very good
+synthetic_ai,48,36-49,Male,Black/African,Ghana,Undergraduate,Full-time employed,2.5,10,Rarely,Sometimes,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,36,36-49,Female,Hispanic/Latino,Argentina,Postgraduate,Full-time employed,4,9,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,42,36-49,Male,East Asian,Indonesia,Undergraduate,Full-time employed,3,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7,8,Good
+synthetic_ai,46,36-49,Female,South Asian,Sri Lanka,Undergraduate,Full-time employed,3.5,10,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,40,36-49,Male,White/Caucasian,USA,Postgraduate,Full-time employed,2.5,12,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,37,36-49,Female,Black/African,Nigeria,Postgraduate,Full-time employed,3,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7,8,Good
+synthetic_ai,43,36-49,Male,Hispanic/Latino,Mexico,Undergraduate,Full-time employed,3.5,10,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,47,36-49,Female,East Asian,Vietnam,Undergraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,7.5,7.5,Good
+synthetic_ai,38,36-49,Male,South Asian,India,Postgraduate,Full-time employed,3.5,10,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,45,36-49,Female,White/Caucasian,UK,Postgraduate,Full-time employed,2.5,11,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,41,36-49,Male,Black/African,Cameroon,Undergraduate,Full-time employed,3,8,Sometimes,Sometimes,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,44,36-49,Female,Middle Eastern,Lebanon,Postgraduate,Full-time employed,3,10,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7,8,Good
+synthetic_ai,39,36-49,Male,East Asian,Philippines,Undergraduate,Full-time employed,4,9,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,46,36-49,Female,South Asian,Bangladesh,Undergraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,48,36-49,Male,Hispanic/Latino,Peru,Undergraduate,Full-time employed,2.5,12,Rarely,Sometimes,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,37,36-49,Female,White/Caucasian,Australia,Postgraduate,Full-time employed,2.5,10,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,43,36-49,Male,East Asian,Thailand,Undergraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,7.5,7.5,Good
+synthetic_ai,40,36-49,Female,Black/African,Ethiopia,Undergraduate,Full-time employed,3,8,Sometimes,Sometimes,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,36,36-49,Male,South Asian,Pakistan,Postgraduate,Full-time employed,3,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7,8,Good
+synthetic_ai,47,36-49,Female,Hispanic/Latino,Venezuela,Undergraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,42,36-49,Male,White/Caucasian,Germany,Postgraduate,Full-time employed,2,12,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Good
+synthetic_ai,38,36-49,Female,East Asian,China,Postgraduate,Full-time employed,4,10,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,49,36-49,Male,Black/African,Zimbabwe,Undergraduate,Full-time employed,2.5,10,Rarely,Sometimes,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,44,36-49,Female,South Asian,Nepal,Undergraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,39,36-49,Male,East Asian,South Korea,Postgraduate,Full-time employed,2.5,10,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,45,36-49,Female,White/Caucasian,USA,Postgraduate,Full-time employed,2,12,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Good
+synthetic_ai,41,36-49,Male,Hispanic/Latino,Colombia,Undergraduate,Full-time employed,3,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7,8,Good
+synthetic_ai,48,36-49,Female,Black/African,Senegal,Undergraduate,Full-time employed,3.5,8,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,37,36-49,Male,Middle Eastern,Saudi Arabia,Undergraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,7.5,7.5,Good
+synthetic_ai,43,36-49,Female,East Asian,Japan,Postgraduate,Full-time employed,2.5,11,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,40,36-49,Male,White/Caucasian,UK,Postgraduate,Full-time employed,2,12,Rarely,Rarely,Rarely,Rarely,Rarely,6,8.5,Good
+synthetic_ai,46,36-49,Female,South Asian,India,Postgraduate,Full-time employed,3,12,Rarely,Sometimes,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,42,36-49,Male,Black/African,Nigeria,Undergraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,47,36-49,Female,Hispanic/Latino,Mexico,Undergraduate,Full-time employed,4,10,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,38,36-49,Male,East Asian,China,Postgraduate,Full-time employed,2.5,11,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,44,36-49,Female,White/Caucasian,Spain,Postgraduate,Full-time employed,2.5,11,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,36,36-49,Male,South Asian,Pakistan,Undergraduate,Full-time employed,3.5,8,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,49,36-49,Female,Black/African,Kenya,Undergraduate,Full-time employed,3,10,Sometimes,Sometimes,Rarely,Rarely,Rarely,7,8,Good
+synthetic_ai,41,36-49,Male,Middle Eastern,Egypt,Undergraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+,,,,,,,,,,,,,,,,,
+synthetic_ai,52,50-59,Male,White/Caucasian,USA,Postgraduate,Full-time employed,1.5,12,Rarely,Rarely,Rarely,Never,Never,5,8,Good
+synthetic_ai,58,50-59,Female,East Asian,China,Postgraduate,Full-time employed,1.5,10,Never,Never,Never,Never,Never,4.5,8.5,Good
+synthetic_ai,55,50-59,Male,South Asian,India,Postgraduate,Full-time employed,2,11,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,61,60+,Female,Black/African,Nigeria,Undergraduate,Retired,1.5,8,Never,Never,Never,Never,Never,4,8.5,Good
+synthetic_ai,53,50-59,Male,White/Caucasian,UK,Postgraduate,Full-time employed,1.5,12,Rarely,Rarely,Never,Never,Rarely,5,8.5,Good
+synthetic_ai,67,60+,Female,Hispanic/Latino,Mexico,Undergraduate,Retired,1.5,7,Never,Never,Never,Never,Never,4,8.5,Very good
+synthetic_ai,56,50-59,Male,East Asian,Japan,Postgraduate,Full-time employed,1,14,Never,Rarely,Never,Never,Never,4.5,8.5,Good
+synthetic_ai,63,60+,Female,South Asian,India,Postgraduate,Retired,1.5,8,Never,Never,Never,Never,Never,4,8.5,Very good
+synthetic_ai,50,50-59,Male,Black/African,South Africa,Postgraduate,Full-time employed,2,10,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,72,60+,Male,White/Caucasian,Australia,Undergraduate,Retired,1,6,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,54,50-59,Female,East Asian,South Korea,Postgraduate,Full-time employed,2,11,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,68,60+,Male,Hispanic/Latino,Brazil,Undergraduate,Retired,1.5,7,Never,Never,Never,Never,Never,4,8.5,Good
+synthetic_ai,57,50-59,Female,White/Caucasian,USA,Postgraduate,Full-time employed,1.5,12,Rarely,Rarely,Never,Never,Rarely,5,8.5,Good
+synthetic_ai,64,60+,Female,Black/African,Kenya,Undergraduate,Retired,1.5,6,Never,Never,Never,Never,Never,4,8.5,Very good
+synthetic_ai,51,50-59,Male,East Asian,China,Postgraduate,Full-time employed,1.5,13,Rarely,Rarely,Never,Never,Rarely,5,8.5,Good
+synthetic_ai,70,60+,Female,White/Caucasian,UK,Undergraduate,Retired,1,5,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,55,50-59,Male,South Asian,Pakistan,Postgraduate,Full-time employed,2,11,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,62,60+,Male,Black/African,Ghana,Undergraduate,Retired,1.5,7,Never,Never,Never,Never,Never,4,8.5,Very good
+synthetic_ai,53,50-59,Female,Hispanic/Latino,Colombia,Undergraduate,Full-time employed,2,10,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,75,60+,Male,White/Caucasian,USA,Undergraduate,Retired,0.5,4,Never,Never,Never,Never,Never,3,9,Very good
+synthetic_ai,59,50-59,Female,East Asian,Vietnam,Undergraduate,Full-time employed,2,9,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,66,60+,Male,South Asian,India,Postgraduate,Retired,1.5,8,Never,Never,Never,Never,Never,4,8.5,Very good
+synthetic_ai,54,50-59,Female,White/Caucasian,Germany,Postgraduate,Full-time employed,1.5,12,Rarely,Rarely,Never,Never,Rarely,5,8.5,Good
+synthetic_ai,71,60+,Female,Black/African,Nigeria,Undergraduate,Retired,1,6,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,52,50-59,Male,Hispanic/Latino,Argentina,Undergraduate,Full-time employed,2,10,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,60,50-59,Female,East Asian,Japan,Postgraduate,Full-time employed,1.5,12,Rarely,Rarely,Never,Never,Rarely,5,8.5,Good
+synthetic_ai,65,60+,Male,White/Caucasian,Canada,Postgraduate,Retired,1,8,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,57,50-59,Female,South Asian,Sri Lanka,Undergraduate,Full-time employed,2,9,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,69,60+,Male,Black/African,Ethiopia,Undergraduate,Retired,1,5,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,53,50-59,Female,Hispanic/Latino,Mexico,Undergraduate,Full-time employed,2,10,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,58,50-59,Male,East Asian,China,Postgraduate,Full-time employed,1.5,14,Rarely,Rarely,Never,Never,Rarely,5,8.5,Good
+synthetic_ai,73,60+,Female,White/Caucasian,UK,Undergraduate,Retired,0.5,5,Never,Never,Never,Never,Never,3,9,Very good
+synthetic_ai,51,50-59,Male,South Asian,India,Postgraduate,Full-time employed,2,12,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,64,60+,Female,Hispanic/Latino,Brazil,Undergraduate,Retired,1.5,7,Never,Never,Never,Never,Never,4,8.5,Good
+synthetic_ai,55,50-59,Male,White/Caucasian,Australia,Postgraduate,Full-time employed,2,12,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,67,60+,Female,East Asian,South Korea,Undergraduate,Retired,1.5,8,Never,Never,Never,Never,Never,4,8.5,Good
+synthetic_ai,56,50-59,Male,Black/African,South Africa,Undergraduate,Full-time employed,2,10,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,70,60+,Female,South Asian,India,Undergraduate,Retired,1,6,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,53,50-59,Male,Hispanic/Latino,Colombia,Undergraduate,Full-time employed,2,9,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,62,60+,Female,White/Caucasian,France,Postgraduate,Retired,1,8,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,57,50-59,Male,East Asian,Indonesia,Undergraduate,Full-time employed,2,9,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,65,60+,Female,Black/African,Nigeria,Undergraduate,Retired,1.5,7,Never,Never,Never,Never,Never,4,8.5,Very good
+synthetic_ai,52,50-59,Male,White/Caucasian,Spain,Postgraduate,Full-time employed,1.5,12,Rarely,Rarely,Never,Never,Rarely,5,8.5,Good
+synthetic_ai,68,60+,Male,East Asian,Thailand,Undergraduate,Retired,1,5,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,54,50-59,Female,South Asian,Bangladesh,Undergraduate,Full-time employed,2,9,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,71,60+,Female,Hispanic/Latino,Peru,Undergraduate,Retired,1,5,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,59,50-59,Male,Black/African,Cameroon,Undergraduate,Full-time employed,2,8,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,66,60+,Male,White/Caucasian,USA,Postgraduate,Retired,1,8,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,55,50-59,Female,East Asian,Malaysia,Undergraduate,Full-time employed,2.5,9,Rarely,Rarely,Rarely,Rarely,Rarely,6,8,Good
+synthetic_ai,63,60+,Female,South Asian,India,Undergraduate,Retired,1.5,8,Never,Never,Never,Never,Never,4,8.5,Very good
+synthetic_ai,50,50-59,Male,White/Caucasian,Germany,Postgraduate,Full-time employed,2,12,Rarely,Rarely,Never,Never,Rarely,5.5,8,Good
+synthetic_ai,74,60+,Male,Black/African,South Africa,Undergraduate,Retired,0.5,4,Never,Never,Never,Never,Never,3,9,Very good
+synthetic_ai,52,50-59,Female,Hispanic/Latino,Venezuela,Undergraduate,Full-time employed,2,9,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,61,60+,Male,East Asian,Philippines,Undergraduate,Retired,1.5,7,Never,Never,Never,Never,Never,4,8.5,Good
+synthetic_ai,57,50-59,Female,White/Caucasian,Canada,Postgraduate,Full-time employed,1.5,12,Rarely,Rarely,Never,Never,Rarely,5,8.5,Good
+synthetic_ai,69,60+,Male,Hispanic/Latino,Argentina,Undergraduate,Retired,1,6,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,54,50-59,Female,East Asian,Vietnam,Undergraduate,Full-time employed,2.5,9,Rarely,Rarely,Rarely,Rarely,Rarely,6,8,Good
+synthetic_ai,58,50-59,Male,South Asian,Pakistan,Undergraduate,Full-time employed,2,10,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,72,60+,Female,Black/African,Kenya,Undergraduate,Retired,1,5,Never,Never,Never,Never,Never,4,9,Very good
+synthetic_ai,51,50-59,Male,White/Caucasian,Australia,Postgraduate,Full-time employed,1.5,12,Rarely,Rarely,Never,Never,Rarely,5,8.5,Good
+,,,,,,,,,,,,,,,,,
+synthetic_ai,45,36-49,Male,White/Caucasian,USA,Postgraduate,Full-time employed,6.5,12,Daily,Often,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,38,36-49,Female,East Asian,China,Postgraduate,Full-time employed,7,10,Daily,Always,Often,Yes,Daily,11,6,Poor
+synthetic_ai,33,28-35,Non-binary,White/Caucasian,USA,Undergraduate,Full-time employed,6,8,Daily,Often,Often,Yes,Daily,10,6.5,Fair
+synthetic_ai,27,23-27,Female,Black/African,USA,Undergraduate,Job seeker,7.5,7,Daily,Always,Always,Yes,Daily,11.5,5.5,Poor
+synthetic_ai,19,18-22,Male,Native American,USA,High school,Student,8,5,Daily,Always,Often,Yes,Daily,12,5,Very poor
+synthetic_ai,42,36-49,Female,White/Caucasian,Australia,Postgraduate,Self-employed,5.5,10,Daily,Sometimes,Sometimes,Sometimes,Often,9.5,7,Fair
+synthetic_ai,29,28-35,Non-binary,Hispanic/Latino,Mexico,Postgraduate,Full-time employed,4.5,7,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8.5,7.5,Fair
+synthetic_ai,16,13-17,Female,South Asian,India,High school,Student,9,4,Daily,Always,Always,Yes,Daily,13,4.5,Very poor
+synthetic_ai,23,18-22,Male,East Asian,South Korea,Undergraduate,Student,8.5,6,Daily,Always,Always,Yes,Daily,12.5,5,Very poor
+synthetic_ai,35,28-35,Female,Black/African,USA,Undergraduate,Full-time employed,3.5,8,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,7.5,7.5,Good
+synthetic_ai,18,18-22,Female,White/Caucasian,USA,High school,Student,9,5,Daily,Always,Always,Yes,Daily,13,4.5,Very poor
+synthetic_ai,31,28-35,Male,South Asian,India,Postgraduate,Full-time employed,6.5,9,Daily,Often,Sometimes,Yes,Often,10.5,6.5,Fair
+synthetic_ai,25,23-27,Non-binary,White/Caucasian,UK,Undergraduate,Part-time employed,5.5,6,Daily,Often,Sometimes,Yes,Often,9.5,7,Fair
+synthetic_ai,40,36-49,Male,Hispanic/Latino,Brazil,Undergraduate,Freelancer,6,10,Often,Often,Sometimes,Yes,Often,10,6.5,Fair
+synthetic_ai,22,18-22,Female,Black/African,Nigeria,Undergraduate,Student,8,5,Daily,Always,Often,Yes,Daily,12,5.5,Poor
+synthetic_ai,47,36-49,Female,Middle Eastern,Iran,Postgraduate,Full-time employed,4.5,9,Sometimes,Often,Sometimes,Sometimes,Often,8.5,7,Fair
+synthetic_ai,20,18-22,Male,East Asian,Philippines,High school,Student,7,5,Daily,Always,Often,Yes,Daily,11,5.5,Poor
+synthetic_ai,34,28-35,Non-binary,White/Caucasian,Germany,Postgraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,17,13-17,Female,East Asian,Japan,High school,Student,7.5,4,Daily,Always,Always,Yes,Daily,11.5,5.5,Poor
+synthetic_ai,29,28-35,Male,Black/African,Ghana,Undergraduate,Full-time employed,5.5,6,Often,Often,Sometimes,Yes,Often,9.5,7,Fair
+synthetic_ai,21,18-22,Female,South Asian,Bangladesh,Undergraduate,Student,8.5,5,Daily,Always,Always,Yes,Daily,12.5,5,Very poor
+synthetic_ai,36,36-49,Male,White/Caucasian,Spain,Postgraduate,Self-employed,4,10,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,16,13-17,Male,Black/African,South Africa,High school,Student,8,4,Daily,Always,Often,Yes,Daily,12,5.5,Poor
+synthetic_ai,44,36-49,Female,East Asian,China,Postgraduate,Full-time employed,4,10,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,24,23-27,Non-binary,Black/African,USA,Undergraduate,Job seeker,6.5,6,Daily,Often,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,31,28-35,Female,Hispanic/Latino,Mexico,Undergraduate,Part-time employed,6,7,Daily,Often,Often,Yes,Daily,10,6.5,Fair
+synthetic_ai,19,18-22,Male,South Asian,Pakistan,High school,Student,7,4,Daily,Always,Often,Yes,Daily,11,5.5,Poor
+synthetic_ai,52,50-59,Female,White/Caucasian,USA,Postgraduate,Full-time employed,5,12,Often,Sometimes,Sometimes,Sometimes,Often,9,6.5,Fair
+synthetic_ai,26,23-27,Female,East Asian,Malaysia,Undergraduate,Full-time employed,5.5,6,Often,Often,Sometimes,Yes,Often,9.5,7,Fair
+synthetic_ai,43,36-49,Male,Black/African,Nigeria,Postgraduate,Full-time employed,4.5,11,Sometimes,Often,Sometimes,Sometimes,Often,8.5,7.5,Good
+synthetic_ai,21,18-22,Female,White/Caucasian,Canada,Undergraduate,Student,7.5,5,Daily,Always,Always,Yes,Daily,11.5,5.5,Poor
+synthetic_ai,38,36-49,Male,South Asian,India,Postgraduate,Full-time employed,3.5,10,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,7.5,7.5,Good
+synthetic_ai,27,23-27,Non-binary,White/Caucasian,France,Postgraduate,Full-time employed,5,7,Often,Sometimes,Sometimes,Sometimes,Often,9,7,Fair
+synthetic_ai,20,18-22,Male,Black/African,Cameroon,High school,Student,6.5,4,Daily,Often,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,33,28-35,Female,Hispanic/Latino,Colombia,Undergraduate,Full-time employed,5,8,Often,Often,Sometimes,Sometimes,Often,9,7,Fair
+synthetic_ai,48,36-49,Female,East Asian,Thailand,Postgraduate,Full-time employed,4.5,10,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8.5,7.5,Good
+synthetic_ai,22,18-22,Male,South Asian,Nepal,Undergraduate,Student,6,4,Daily,Often,Sometimes,Yes,Daily,10,6.5,Fair
+synthetic_ai,36,36-49,Female,Black/African,Ethiopia,Undergraduate,Full-time employed,3.5,8,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,25,23-27,Male,East Asian,Indonesia,Undergraduate,Full-time employed,5.5,6,Often,Often,Sometimes,Yes,Often,9.5,7,Fair
+synthetic_ai,17,13-17,Female,Hispanic/Latino,Venezuela,High school,Student,8.5,4,Daily,Always,Often,Yes,Daily,12.5,5,Very poor
+synthetic_ai,44,36-49,Male,White/Caucasian,Germany,Postgraduate,Full-time employed,2.5,13,Rarely,Rarely,Rarely,Rarely,Rarely,6.5,8,Good
+synthetic_ai,32,28-35,Female,South Asian,Sri Lanka,Undergraduate,Full-time employed,5,7,Often,Often,Sometimes,Yes,Often,9,7,Fair
+synthetic_ai,23,18-22,Male,White/Caucasian,USA,Undergraduate,Student,7,5,Daily,Often,Often,Yes,Daily,11,6,Poor
+synthetic_ai,18,18-22,Female,East Asian,Vietnam,High school,Student,7.5,4,Daily,Always,Often,Yes,Daily,11.5,5.5,Poor
+synthetic_ai,41,36-49,Female,Black/African,Zimbabwe,Undergraduate,Full-time employed,3.5,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,26,23-27,Male,Hispanic/Latino,Peru,Undergraduate,Full-time employed,5,6,Often,Sometimes,Sometimes,Sometimes,Often,9,7,Fair
+synthetic_ai,34,28-35,Non-binary,East Asian,South Korea,Postgraduate,Full-time employed,5.5,8,Often,Often,Sometimes,Sometimes,Often,9.5,7,Fair
+synthetic_ai,15,13-17,Male,Black/African,Nigeria,High school,Student,7,3,Daily,Always,Often,Yes,Daily,11,5.5,Poor
+synthetic_ai,28,28-35,Female,White/Caucasian,Australia,Postgraduate,Full-time employed,5.5,8,Often,Sometimes,Sometimes,Sometimes,Often,9.5,7,Fair
+synthetic_ai,21,18-22,Male,Hispanic/Latino,Colombia,Undergraduate,Student,6.5,4,Daily,Often,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,53,50-59,Female,East Asian,China,Postgraduate,Full-time employed,2,11,Rarely,Rarely,Rarely,Rarely,Rarely,5.5,8,Good
+synthetic_ai,19,18-22,Female,Middle Eastern,Saudi Arabia,High school,Student,7.5,4,Daily,Always,Often,Yes,Daily,11.5,5.5,Poor
+synthetic_ai,30,28-35,Male,White/Caucasian,USA,Postgraduate,Full-time employed,3,9,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7,8,Good
+synthetic_ai,16,13-17,Female,East Asian,South Korea,High school,Student,9,5,Daily,Always,Always,Yes,Daily,13,4.5,Very poor
+synthetic_ai,39,36-49,Male,South Asian,India,Postgraduate,Freelancer,5.5,10,Daily,Often,Sometimes,Yes,Often,9.5,6.5,Fair
+synthetic_ai,24,23-27,Female,White/Caucasian,UK,Undergraduate,Job seeker,6.5,6,Daily,Often,Often,Yes,Daily,10.5,6,Poor
+synthetic_ai,35,28-35,Male,Black/African,Senegal,Undergraduate,Full-time employed,4,8,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,8,7.5,Good
+synthetic_ai,20,18-22,Female,Hispanic/Latino,Mexico,High school,Student,8,4,Daily,Always,Often,Yes,Daily,12,5.5,Poor
+synthetic_ai,46,36-49,Male,East Asian,Philippines,Undergraduate,Full-time employed,3.5,10,Sometimes,Sometimes,Rarely,Rarely,Sometimes,7.5,7.5,Good
+synthetic_ai,22,18-22,Male,Black/African,Nigeria,Undergraduate,Student,7.5,5,Daily,Always,Often,Yes,Daily,11.5,5.5,Poor
