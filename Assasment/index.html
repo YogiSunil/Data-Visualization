@@ -4,12 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What Makes a Country Miserable?</title>
+  <style>
+    .tooltip {
+      position: absolute;
+      background: white;
+      border: 1px solid #999;
+      border-radius: 4px;
+      padding: 6px 8px;
+      font-family: sans-serif;
+      font-size: 13px;
+      pointer-events: none;
+      opacity: 0;
+    }
+  </style>
 </head>
 <body>
   <h1>What Makes a Country Miserable?</h1>
   <p>Sunil</p>
 
   <!-- Chart 1: 10 most fragile countries (bar chart) -->
+  <button id="toggle-bars">Show 10 least fragile</button><br>
   <svg id="bar-chart" width="800" height="450"></svg>
 
   <!-- Chart 2: fragility vs. another measure (scatter plot) -->
@@ -19,6 +33,7 @@
   <svg id="scatter-plot-depression" width="800" height="450"></svg>
 
   <script src="https://d3js.org/d3.v7.min.js"></script>
+  <div class="tooltip" id="tooltip"></div>
   <script>
     // Empty cells become null (missing), not 0
     const num = (value) => value === '' ? null : Number(value)
@@ -67,13 +82,15 @@
         .slice(0, 10)
       console.log('Least fragile WITHOUT filtering (wrong):', unfiltered)
 
-      drawBarChart(top10)
+      drawBarChart(top10, bottom10)
       drawScatter(data, '#scatter-plot', 'infantMortality', 'Infant Mortality (per 1,000 births)')
       // Challenge 9: same chart, y changed to depression
       drawScatter(data, '#scatter-plot-depression', 'depression', 'Depression Rate (% of people, 2022)')
     }
 
     // Challenges 7, 8 and 9: scatter plot with trend line
+    const highlighted = ['Nepal', 'United States']
+
     function drawScatter(allData, svgSelector, yField, yLabel) {
       // Only keep countries that have BOTH values
       const points = allData.filter(d => d.fragility !== null && d[yField] !== null)
@@ -103,9 +120,31 @@
         .join('circle')
         .attr('cx', d => x(d.fragility))
         .attr('cy', d => y(d[yField]))
-        .attr('r', 4)
-        .attr('fill', 'steelblue')
-        .attr('opacity', 0.6)
+        .attr('r', d => highlighted.includes(d.country) ? 7 : 4)
+        .attr('fill', d => highlighted.includes(d.country) ? 'orange' : 'steelblue')
+        .attr('opacity', d => highlighted.includes(d.country) ? 1 : 0.6)
+        // Stretch 1: tooltip on hover
+        .on('mouseover', (event, d) => {
+          d3.select('#tooltip')
+            .style('opacity', 1)
+            .html(`<strong>${d.country}</strong><br>Fragility: ${d.fragility}<br>${yLabel}: ${d[yField]}`)
+        })
+        .on('mousemove', (event) => {
+          d3.select('#tooltip')
+            .style('left', (event.pageX + 12) + 'px')
+            .style('top', (event.pageY + 12) + 'px')
+        })
+        .on('mouseout', () => d3.select('#tooltip').style('opacity', 0))
+
+      // Stretch 3: text label next to the highlighted countries
+      g.selectAll('.country-label')
+        .data(points.filter(d => highlighted.includes(d.country)))
+        .join('text')
+        .attr('class', 'country-label')
+        .attr('x', d => x(d.fragility) + 10)
+        .attr('y', d => y(d[yField]) + 4)
+        .attr('font-weight', 'bold')
+        .text(d => d.country === 'United States' ? 'USA' : d.country)
 
       g.append('g')
         .attr('transform', `translate(0,${innerHeight})`)
@@ -133,6 +172,12 @@
       const intercept = meanY - slope * meanX
       console.log(`${yField}: slope = ${slope}, intercept = ${intercept}`)
 
+      // Stretch 1: which country is furthest from the trend line?
+      const furthest = points
+        .map(d => ({ country: d.country, gap: Math.abs(d[yField] - (slope * d.fragility + intercept)) }))
+        .sort((a, b) => b.gap - a.gap)[0]
+      console.log(`${yField}: furthest from the line is ${furthest.country} (gap ${furthest.gap.toFixed(2)})`)
+
       // y value of the line at the smallest and largest x
       const [minX, maxX] = d3.extent(points, d => d.fragility)
       const lineData = [
@@ -158,7 +203,8 @@
         .attr('stroke-width', 2)
     }
 
-    function drawBarChart(items) {
+    // Stretch 4: bar chart that can be updated with a button
+    function drawBarChart(top10, bottom10) {
       const svg = d3.select('#bar-chart')
       const width = +svg.attr('width')
       const height = +svg.attr('height')
@@ -168,34 +214,8 @@
 
       const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`)
-
-      const x = d3.scaleBand()
-        .domain(items.map(d => d.country))
-        .range([0, innerWidth])
-        .padding(0.2)
-
-      const y = d3.scaleLinear()
-        .domain([0, d3.max(items, d => d.fragility)])
-        .nice()
-        .range([innerHeight, 0]) 
-
-      g.selectAll('rect')
-        .data(items)
-        .join('rect')
-        .attr('x', d => x(d.country))
-        .attr('y', d => y(d.fragility))
-        .attr('width', x.bandwidth())
-        .attr('height', d => innerHeight - y(d.fragility))
-        .attr('fill', 'steelblue')
-
-      g.append('g')
-        .attr('transform', `translate(0,${innerHeight})`)
-        .call(d3.axisBottom(x))
-        .selectAll('text')
-        .attr('transform', 'rotate(-40)')
-        .style('text-anchor', 'end')
-
-      g.append('g').call(d3.axisLeft(y))
+      const xAxisG = g.append('g').attr('transform', `translate(0,${innerHeight})`)
+      const yAxisG = g.append('g')
 
       svg.append('text')
         .attr('transform', 'rotate(-90)')
@@ -203,8 +223,56 @@
         .attr('y', 15)
         .attr('text-anchor', 'middle')
         .text('Fragile States Index')
-    }
 
+      let showingMostFragile = true
+
+      function update(items) {
+        const x = d3.scaleBand()
+          .domain(items.map(d => d.country))
+          .range([0, innerWidth])
+          .padding(0.2)
+
+        const y = d3.scaleLinear()
+          .domain([0, d3.max(items, d => d.fragility)])
+          .nice()
+          .range([innerHeight, 0])
+
+        const t = d3.transition().duration(800)
+
+        g.selectAll('rect')
+          .data(items, d => d.country)
+          .join(
+            enter => enter.append('rect')
+              .attr('x', d => x(d.country))
+              .attr('width', x.bandwidth())
+              .attr('y', innerHeight)
+              .attr('height', 0),
+            update => update,
+            exit => exit.transition(t).attr('y', innerHeight).attr('height', 0).remove()
+          )
+          .attr('fill', d => highlighted.includes(d.country) ? 'orange' : 'steelblue')
+          .transition(t)
+          .attr('x', d => x(d.country))
+          .attr('width', x.bandwidth())
+          .attr('y', d => y(d.fragility))
+          .attr('height', d => innerHeight - y(d.fragility))
+
+        const rotateLabels = () => xAxisG.selectAll('text')
+          .attr('transform', 'rotate(-40)')
+          .style('text-anchor', 'end')
+        xAxisG.transition(t).call(d3.axisBottom(x)).on('end', rotateLabels)
+        rotateLabels()
+        yAxisG.transition(t).call(d3.axisLeft(y))
+      }
+
+      update(top10)
+
+      d3.select('#toggle-bars').on('click', function () {
+        showingMostFragile = !showingMostFragile
+        update(showingMostFragile ? top10 : bottom10)
+        d3.select(this).text(showingMostFragile ? 'Show 10 least fragile' : 'Show 10 most fragile')
+      })
+    }
     main()
   </script>
 </body>
