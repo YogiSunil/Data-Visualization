@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Makes a Country Miserable?</title>
+</head>
+<body>
+  <h1>What Makes a Country Miserable?</h1>
+  <p>Sunil</p>
+
+  <!-- Chart 1: 10 most fragile countries (bar chart) -->
+  <svg id="bar-chart" width="800" height="450"></svg>
+
+  <!-- Chart 2: fragility vs. another measure (scatter plot) -->
+  <svg id="scatter-plot" width="800" height="450"></svg>
+
+  <!-- Chart 3 (Challenge 9): fragility vs. depression -->
+  <svg id="scatter-plot-depression" width="800" height="450"></svg>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    // Empty cells become null (missing), not 0
+    const num = (value) => value === '' ? null : Number(value)
+
+    async function main() {
+      // d3.csv runs this function on every row, like map
+      const data = await d3.csv('misery.csv', d => ({
+        country: d.COUNTRY,
+        fragility: num(d['Fragile States Index']),
+        womenPeace: num(d['Women, Peace, and Security Index']),
+        poverty: num(d['Poverty Rate(2010-2020)']),
+        infantMortality: num(d['Infant Mortality']),
+        unemployment: num(d['Unemployment Rate(2000-2020)']),
+        violentCrime: num(d['Violent Crime Index Rate(2022)']),
+        suicide: num(d['Suicide Rate(2022)']),
+        incarceration: num(d['Incarceration Rate(2022)']),
+        depression: num(d['Global Rate Depression(2022)']),
+        alcohol: num(d['Global Alcoholism rate(2019)']),
+        drugs: num(d['Global Drug Rate(2019)'])
+      }))
+
+      console.log(data)
+
+      // Question 1
+      const missingFragility = data.filter(d => d.fragility === null)
+      console.log('Countries:', data.length)
+      console.log('Missing fragility:', missingFragility.length, missingFragility.map(d => d.country))
+
+      // Challenge 3: filter -> sort -> slice
+      // filter returns a new array, so sorting it won't change `data`
+      const withFragility = data.filter(d => d.fragility !== null)
+      const top10 = [...withFragility]
+        .sort((a, b) => b.fragility - a.fragility)
+        .slice(0, 10)
+      console.log('10 most fragile:', top10)
+
+      // Challenge 6: least fragile (copy first, since sort changes the array it is called on)
+      const bottom10 = [...withFragility]
+        .sort((a, b) => a.fragility - b.fragility)
+        .slice(0, 10)
+      console.log('10 least fragile:', bottom10)
+
+      // Question 3: what happens if we forget to filter nulls?
+      const unfiltered = [...data]
+        .sort((a, b) => a.fragility - b.fragility)
+        .slice(0, 10)
+      console.log('Least fragile WITHOUT filtering (wrong):', unfiltered)
+
+      drawBarChart(top10)
+      drawScatter(data, '#scatter-plot', 'infantMortality', 'Infant Mortality (per 1,000 births)')
+      // Challenge 9: same chart, y changed to depression
+      drawScatter(data, '#scatter-plot-depression', 'depression', 'Depression Rate (% of people, 2022)')
+    }
+
+    // Challenges 7, 8 and 9: scatter plot with trend line
+    function drawScatter(allData, svgSelector, yField, yLabel) {
+      // Only keep countries that have BOTH values
+      const points = allData.filter(d => d.fragility !== null && d[yField] !== null)
+
+      const svg = d3.select(svgSelector)
+      const width = +svg.attr('width')
+      const height = +svg.attr('height')
+      const margin = { top: 20, right: 20, bottom: 50, left: 60 }
+      const innerWidth = width - margin.left - margin.right
+      const innerHeight = height - margin.top - margin.bottom
+
+      const g = svg.append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`)
+
+      const x = d3.scaleLinear()
+        .domain(d3.extent(points, d => d.fragility))
+        .nice()
+        .range([0, innerWidth])
+
+      const y = d3.scaleLinear()
+        .domain(d3.extent(points, d => d[yField]))
+        .nice()
+        .range([innerHeight, 0])
+
+      g.selectAll('circle')
+        .data(points)
+        .join('circle')
+        .attr('cx', d => x(d.fragility))
+        .attr('cy', d => y(d[yField]))
+        .attr('r', 4)
+        .attr('fill', 'steelblue')
+        .attr('opacity', 0.6)
+
+      g.append('g')
+        .attr('transform', `translate(0,${innerHeight})`)
+        .call(d3.axisBottom(x))
+      g.append('g').call(d3.axisLeft(y))
+
+      svg.append('text')
+        .attr('x', margin.left + innerWidth / 2)
+        .attr('y', height - 10)
+        .attr('text-anchor', 'middle')
+        .text('Fragile States Index')
+
+      svg.append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('x', -(margin.top + innerHeight / 2))
+        .attr('y', 15)
+        .attr('text-anchor', 'middle')
+        .text(yLabel)
+
+      // Linear regression: slope = sum((x - meanX)(y - meanY)) / sum((x - meanX)^2)
+      const meanX = d3.mean(points, d => d.fragility)
+      const meanY = d3.mean(points, d => d[yField])
+      const slope = d3.sum(points, d => (d.fragility - meanX) * (d[yField] - meanY)) /
+                    d3.sum(points, d => (d.fragility - meanX) ** 2)
+      const intercept = meanY - slope * meanX
+      console.log(`${yField}: slope = ${slope}, intercept = ${intercept}`)
+
+      // y value of the line at the smallest and largest x
+      const [minX, maxX] = d3.extent(points, d => d.fragility)
+      const lineData = [
+        { x: minX, y: slope * minX + intercept },
+        { x: maxX, y: slope * maxX + intercept }
+      ]
+
+      // Clip so the line can't be drawn outside the plot area (e.g. below y = 0)
+      const clipId = 'clip-' + yField
+      svg.append('defs')
+        .append('clipPath')
+        .attr('id', clipId)
+        .append('rect')
+        .attr('width', innerWidth)
+        .attr('height', innerHeight)
+
+      g.append('path')
+        .datum(lineData)
+        .attr('clip-path', `url(#${clipId})`)
+        .attr('d', d3.line().x(d => x(d.x)).y(d => y(d.y)))
+        .attr('fill', 'none')
+        .attr('stroke', 'crimson')
+        .attr('stroke-width', 2)
+    }
+
+    function drawBarChart(items) {
+      const svg = d3.select('#bar-chart')
+      const width = +svg.attr('width')
+      const height = +svg.attr('height')
+      const margin = { top: 20, right: 20, bottom: 110, left: 60 }
+      const innerWidth = width - margin.left - margin.right
+      const innerHeight = height - margin.top - margin.bottom
+
+      const g = svg.append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`)
+
+      const x = d3.scaleBand()
+        .domain(items.map(d => d.country))
+        .range([0, innerWidth])
+        .padding(0.2)
+
+      const y = d3.scaleLinear()
+        .domain([0, d3.max(items, d => d.fragility)])
+        .nice()
+        .range([innerHeight, 0]) 
+
+      g.selectAll('rect')
+        .data(items)
+        .join('rect')
+        .attr('x', d => x(d.country))
+        .attr('y', d => y(d.fragility))
+        .attr('width', x.bandwidth())
+        .attr('height', d => innerHeight - y(d.fragility))
+        .attr('fill', 'steelblue')
+
+      g.append('g')
+        .attr('transform', `translate(0,${innerHeight})`)
+        .call(d3.axisBottom(x))
+        .selectAll('text')
+        .attr('transform', 'rotate(-40)')
+        .style('text-anchor', 'end')
+
+      g.append('g').call(d3.axisLeft(y))
+
+      svg.append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('x', -(margin.top + innerHeight / 2))
+        .attr('y', 15)
+        .attr('text-anchor', 'middle')
+        .text('Fragile States Index')
+    }
+
+    main()
+  </script>
+</body>
+</html>
