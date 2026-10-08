@@ -1,3 +1,27 @@
+
+# My Answers (Sunil)
+
+## Question 1
+There are 186 countries in the dataset, and 10 countries are missing their Fragile States Index scores. These countries are Hong Kong, Kiribati, Liechtenstein, Marshall Islands, Palau, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, Tonga, and Vanuatu.
+
+## Question 2
+Somalia looks different from the others. It has a score of 112.3, while Yemen, which is second, only has 77.5. So there is almost a 35-point difference between them. I think this could be real because Somalia has been dealing with wars and government problems for a long time. But I am not completely sure, so I would check the original Fragile States Index website and compare the numbers with our dataset to see if there is any mistake.
+
+## Question 3
+Finland is the least fragile country with a score of 9.4. This also reminds me of our happiness assessment because Finland was one of the happiest countries there too. When I forgot to filter the missing values, countries like Hong Kong, Kiribati, and Tonga started showing up as the least fragile. This happened because JavaScript treats null like 0 when doing numerical sorting, even though those countries don't actually have a score.
+
+## Question 4
+The trend line goes upward, which means countries with higher fragility scores also tend to have higher infant mortality rates. From the trend line, it looks like for every 1-point increase in fragility, infant mortality increases by about 0.8 deaths per 1,000 births. So basically, babies in more fragile countries are at higher risk. But this doesn't mean fragility is directly causing infant deaths. It just shows that there is a relationship between them.
+
+## Challenge 9 Prediction
+"In more fragile countries, I think depression rates will be **higher**, because people living in those countries may have to deal with wars, poverty, unemployment, and unsafe living conditions. I think all these problems can affect people's mental health and increase depression."
+
+## Question 5
+My prediction was actually wrong. I thought more fragile countries would have higher depression rates, but the trend line is almost flat and goes slightly downward. Countries like Ukraine, Estonia, the United States, and Australia have some of the highest depression rates in this dataset, while countries like the Solomon Islands, Papua New Guinea, and Timor-Leste have lower rates.
+
+I think one reason could be that richer countries have better healthcare systems, more doctors, and more mental health research, so depression may be identified and reported more often. In poorer countries, people might also be struggling with depression, but some cases may not be identified or included in the estimates. So just because a country has a lower reported depression rate doesn't always mean people there have better mental health.
+
+
 # ACS 4310 Final Assessment: What Makes a Country Miserable?
 
 You've just been hired as a data analyst at a global aid organization. They have a limited budget and need to decide where to send help first. Your manager hands you a spreadsheet and says:
@@ -189,25 +213,3 @@ Add a button to the bar chart that toggles between the 10 most fragile and the 1
 
 
 ---
-
-# My Answers (Sunil)
-
-## Question 1
-There are 186 countries in the dataset, and 10 countries are missing their Fragile States Index scores. These countries are Hong Kong, Kiribati, Liechtenstein, Marshall Islands, Palau, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, Tonga, and Vanuatu.
-
-## Question 2
-Somalia looks different from the others. It has a score of 112.3, while Yemen, which is second, only has 77.5. So there is almost a 35-point difference between them. I think this could be real because Somalia has been dealing with wars and government problems for a long time. But I am not completely sure, so I would check the original Fragile States Index website and compare the numbers with our dataset to see if there is any mistake.
-
-## Question 3
-Finland is the least fragile country with a score of 9.4. This also reminds me of our happiness assessment because Finland was one of the happiest countries there too. When I forgot to filter the missing values, countries like Hong Kong, Kiribati, and Tonga started showing up as the least fragile. This happened because JavaScript treats null like 0 when doing numerical sorting, even though those countries don't actually have a score.
-
-## Question 4
-The trend line goes upward, which means countries with higher fragility scores also tend to have higher infant mortality rates. From the trend line, it looks like for every 1-point increase in fragility, infant mortality increases by about 0.8 deaths per 1,000 births. So basically, babies in more fragile countries are at higher risk. But this doesn't mean fragility is directly causing infant deaths. It just shows that there is a relationship between them.
-
-## Challenge 9 Prediction
-"In more fragile countries, I think depression rates will be **higher**, because people living in those countries may have to deal with wars, poverty, unemployment, and unsafe living conditions. I think all these problems can affect people's mental health and increase depression."
-
-## Question 5
-My prediction was actually wrong. I thought more fragile countries would have higher depression rates, but the trend line is almost flat and goes slightly downward. Countries like Ukraine, Estonia, the United States, and Australia have some of the highest depression rates in this dataset, while countries like the Solomon Islands, Papua New Guinea, and Timor-Leste have lower rates.
-
-I think one reason could be that richer countries have better healthcare systems, more doctors, and more mental health research, so depression may be identified and reported more often. In poorer countries, people might also be struggling with depression, but some cases may not be identified or included in the estimates. So just because a country has a lower reported depression rate doesn't always mean people there have better mental health.
